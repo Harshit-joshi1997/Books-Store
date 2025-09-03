@@ -3,7 +3,6 @@ import Sidebar from "./Sidebar";
 
 type Book = {
   _id: string;
-  title: string;
   author: string;
   subject: string;
   publishYear: number;
@@ -40,7 +39,7 @@ export default function Cards() {
             key={book._id}
             className="bg-white p-4 rounded-xl shadow hover:shadow-lg transition"
           >
-            <h3 className="text-lg font-bold">{book.title}</h3>
+            
             <p className="text-gray-600">Author: {book.author}</p>
             <p className="text-gray-600">Subject: {book.subject}</p>
             <p className="text-gray-600">Published: {book.publishYear}</p>

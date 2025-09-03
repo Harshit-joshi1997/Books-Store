@@ -18,12 +18,12 @@ type SidebarProps = {
 
 export default function Sidebar({ filters, setFilters, onSearch }: SidebarProps) {
   return (
-    <div className="w-64 h-screen bg-gray-200 p-6 mt-8 -ml-17">
+    <div className="w-64 h-screen bg-gray-100 p-7 mt-8 -ml-17">
       <h2 className="text-xl font-bold mb-6">Filters</h2>
 
       {/* Author */}
       <div className="mb-4">
-        <label className="block text-sm font-medium text-gray-700 mb-1">
+        <label className="block text-sm font-medium text-gray-700 mb-2">
           Author Name
         </label>
         <input
@@ -31,7 +31,7 @@ export default function Sidebar({ filters, setFilters, onSearch }: SidebarProps)
           value={filters.author}
           onChange={(e) => setFilters((f) => ({ ...f, author: e.target.value }))}
           placeholder="Enter author"
-          className="w-full rounded-lg border-gray-200 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+          className="w-full rounded-lg p-1 border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
         />
       </div>
 
@@ -45,7 +45,7 @@ export default function Sidebar({ filters, setFilters, onSearch }: SidebarProps)
           value={filters.subject}
           onChange={(e) => setFilters((f) => ({ ...f, subject: e.target.value }))}
           placeholder="Enter subject"
-          className="w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+          className="w-full rounded-lg p-1 border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
         />
       </div>
 
@@ -61,7 +61,7 @@ export default function Sidebar({ filters, setFilters, onSearch }: SidebarProps)
             setFilters((f) => ({ ...f, publishYear: e.target.value }))
           }
           placeholder="e.g. 2023"
-          className="w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+          className="w-full rounded-lg p-1 border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
         />
       </div>
 

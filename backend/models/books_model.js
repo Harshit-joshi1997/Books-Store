@@ -13,6 +13,10 @@ const booksSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  img:{
+    type: String,
+    required: true,
+  }
 }, { timestamps: true });
 
 const Book = mongoose.model("Book", booksSchema);

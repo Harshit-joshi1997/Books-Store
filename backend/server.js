@@ -14,12 +14,13 @@ app.use(express.json())
 connectDB()
 
 app.get("/books", async (req, res) => {
-  const { author, subject, publishYear } = req.query;
+  const { author, subject, publishYear,img } = req.query;
   try {
     const query = {};
     if (author) query.author = author;
     if (subject) query.subject = subject;
     if (publishYear) query.publishYear = publishYear;
+    if (img) query.img = img;
 
     const books = await Book.find(query);
     res.json(books);
@@ -28,9 +29,6 @@ app.get("/books", async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
-
-
-
 
 
 app.listen(port, () => {

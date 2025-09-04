@@ -6,13 +6,15 @@ type Book = {
   author: string;
   subject: string;
   publishYear: number;
-};
+  img: string;
+}
 
 export default function Cards() {
   const [filters, setFilters] = useState({
     author: "",
     subject: "",
     publishYear: "",
+    img: ""
   });
   const [books, setBooks] = useState<Book[]>([]);
 
@@ -42,10 +44,11 @@ export default function Cards() {
             key={book._id}
             className="bg-white p-4 rounded-xl shadow hover:shadow-lg transition"
           >
-            
+            <img src={book.img} alt={book.img} className="w-full h-48 object-cover mb-2" />
             <p className="text-gray-600">Author: {book.author}</p>
             <p className="text-gray-600">Subject: {book.subject}</p>
             <p className="text-gray-600">Published: {book.publishYear}</p>
+
           </div>
         ))}
 

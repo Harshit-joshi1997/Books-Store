@@ -18,7 +18,7 @@ type SidebarProps = {
 
 export default function Sidebar({ filters, setFilters, onSearch }: SidebarProps) {
   return (
-    <div className="w-64 h-screen bg-gray-100 p-7 mt-8 -ml-17">
+    <div className="w-64 h-screen bg-gray-100 p-7 mt-8 -ml-17 ">
       <h2 className="text-xl font-bold mb-6">Filters</h2>
 
       {/* Author */}

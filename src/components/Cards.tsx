@@ -34,7 +34,9 @@ export default function Cards() {
 
 
       {/* Cards Section */}
-      <div className="flex-1 mt-15 ml-10 p-2 mb-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" style={{ maxHeight: 'calc(100vh - 200px)', overflowY: 'auto' }}>
+      <div className="flex-1 mt-15 ml-10 p-2 mb-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full py-2 rounded-lg
+       text-white font-medium bg-gradient-to-r from-blue-200 to-blue-100 hover:from-blue-100 hover:to-blue-200
+             transition duration-300 ease-in-out" style={{ maxHeight: 'calc(115vh - 200px)', overflowY: 'auto' }}>
         {books.map((book) => (
           <div
             key={book._id}

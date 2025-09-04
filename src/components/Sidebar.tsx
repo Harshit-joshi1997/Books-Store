@@ -13,7 +13,7 @@ type SidebarProps = {
       publishYear: string;
     }>
   >;
-  onSearch: () => void | Promise<void>;
+  onSearch: () => void; // ✅ accept prop from Cards
 };
 
 export default function Sidebar({ filters, setFilters, onSearch }: SidebarProps) {
@@ -29,7 +29,9 @@ export default function Sidebar({ filters, setFilters, onSearch }: SidebarProps)
         <input
           type="text"
           value={filters.author}
-          onChange={(e) => setFilters((f) => ({ ...f, author: e.target.value }))}
+          onChange={(e) =>
+            setFilters((f) => ({ ...f, author: e.target.value }))
+          }
           placeholder="Enter author"
           className="w-full rounded-lg p-1 border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
         />
@@ -43,7 +45,9 @@ export default function Sidebar({ filters, setFilters, onSearch }: SidebarProps)
         <input
           type="text"
           value={filters.subject}
-          onChange={(e) => setFilters((f) => ({ ...f, subject: e.target.value }))}
+          onChange={(e) =>
+            setFilters((f) => ({ ...f, subject: e.target.value }))
+          }
           placeholder="Enter subject"
           className="w-full rounded-lg p-1 border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
         />
@@ -67,7 +71,7 @@ export default function Sidebar({ filters, setFilters, onSearch }: SidebarProps)
 
       {/* Search Button */}
       <button
-        onClick={onSearch}
+        onClick={onSearch} // ✅ call parent handler
         className="w-full py-2 rounded-lg text-white font-medium
              bg-gradient-to-r from-blue-600 to-blue-800
              hover:from-blue-600 hover:to-blue-900

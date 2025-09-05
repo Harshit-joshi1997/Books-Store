@@ -23,8 +23,6 @@ app.get("/books", async (req, res) => {
     if (img) query.img = img;
 
     const books = await Book.find(query);
-
-    // ✅ send only once
     return res.status(200).json(books);
   } catch (error) {
     return res.status(500).json({ message: error.message });

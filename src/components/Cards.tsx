@@ -22,17 +22,10 @@ export default function Cards() {
     try {
       const query = new URLSearchParams(filters).toString();
       const res = await fetch(`http://localhost:8000/books?${query}`);
-
-      if (!res.ok) {
-        // Handle non-200 HTTP responses
-        throw new Error(`Server error: ${res.status} ${res.statusText}`);
-      }
-
       const data = await res.json();
       setBooks(data);
     } catch (err) {
       console.error("Error fetching books:", err);
-      setBooks([]); // fallback to empty state so UI won't break
     }
   };
 

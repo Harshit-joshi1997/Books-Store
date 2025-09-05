@@ -1,20 +1,20 @@
-import express from 'express'
-import cors from 'cors'
-import dotenv from 'dotenv'
-import connectDB from './db/db.js'
-import Book from './models/books_model.js'
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+import connectDB from "./db/db.js";
+import Book from "./models/books_model.js";
 
-dotenv.config()
-const app = express()
-const port = 8000
+dotenv.config({ path: "./backend/.env" });
+const app = express();
+const port = 8000;
 
-app.use(cors())
-app.use(express.json())
+app.use(cors());
+app.use(express.json());
 
-connectDB()
+connectDB();
 
 app.get("/books", async (req, res) => {
-  const { author, subject, publishYear,img } = req.query;
+  const { author, subject, publishYear, img } = req.query;
   try {
     const query = {};
     if (author) query.author = author;
@@ -23,14 +23,14 @@ app.get("/books", async (req, res) => {
     if (img) query.img = img;
 
     const books = await Book.find(query);
-    res.json(books);
-    return res.status(200).json({ message: 'Books fetched successfully' });
+
+    // ✅ send only once
+    return res.status(200).json(books);
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    return res.status(500).json({ message: error.message });
   }
 });
 
-
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+  console.log(`Example app listening on port ${port}`);
+});

@@ -23,8 +23,7 @@ app.get("/books", async (req, res) => {
     if (img) query.img = img;
 
     const books = await Book.find(query);
-    res.json(books);
-    return res.status(200).json({ message: 'Books fetched successfully' });
+    res.status(200).json(books);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

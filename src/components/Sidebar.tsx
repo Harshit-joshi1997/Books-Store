@@ -79,6 +79,9 @@ export default function Sidebar({ filters, setFilters, onSearch }: SidebarProps)
       >
         Search
       </button>
+      
+
+
     </div>
   );
 }

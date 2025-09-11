@@ -8,6 +8,8 @@ const navigation = [
     { name: 'About', href: '/about', current: false },
   { name: 'Contact', href: '/news', current: false },
   { name: 'Campus News', href: '/news', current: false },
+  { name: 'Events', href: '/events', current: false }, 
+  { name: 'Add books', href: '/adds', current: false }
 ];
 
 function classNames(...classes: (string | undefined | null | false)[]) {

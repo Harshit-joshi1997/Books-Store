@@ -29,6 +29,23 @@ app.get("/books", async (req, res) => {
   }
 });
 
+app.post("/adds", async (req, res) => {
+  const { author, subject, publishYear,img } = req.body;
+  const newBook = new Book({
+    author,
+    subject,
+    publishYear,
+    img
+  });
+  try {
+    await newBook.save();
+    res.status(201).json(newBook);
+  } catch (error) {
+    res.status(409).json({ message: error.message });
+  }
+}
+)
+
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

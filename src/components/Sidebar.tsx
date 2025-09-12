@@ -1,4 +1,6 @@
 import React from "react";
+import { ToastContainer, toast } from 'react-toastify';
+ 
 
 type SidebarProps = {
   filters: {
@@ -17,6 +19,7 @@ type SidebarProps = {
 };
 
 export default function Sidebar({ filters, setFilters, onSearch }: SidebarProps) {
+  const notify = () => toast("Enjoy your books!!");
   return (
     <div className="w-64 h-screen bg-gray-100 p-7 mt-8 -ml-17 ">
       <h2 className="text-xl font-bold mb-6">Filters</h2>
@@ -71,15 +74,19 @@ export default function Sidebar({ filters, setFilters, onSearch }: SidebarProps)
 
       {/* Search Button */}
       <button
-        onClick={onSearch} // ✅ call parent handler
-        className="w-full py-2 rounded-lg text-white font-medium
+  onClick={() => {
+    onSearch();
+    notify();
+  }}
+  className="w-full py-2 rounded-lg text-white font-medium
              bg-gradient-to-r from-blue-600 to-blue-800
              hover:from-blue-600 hover:to-blue-900
              transition duration-300 ease-in-out"
-      >
-        Search
-      </button>
-      
+>
+  Search
+</button>
+
+<ToastContainer />
 
 
     </div>
